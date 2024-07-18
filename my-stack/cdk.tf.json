@@ -1,0 +1,59 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "my-stack",
+      "version": "0.20.8"
+    },
+    "outputs": {
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "${var.region}"
+      }
+    ]
+  },
+  "resource": {
+    "aws_s3_bucket": {
+      "test": {
+        "//": {
+          "metadata": {
+            "path": "my-stack/test",
+            "uniqueId": "test"
+          }
+        },
+        "bucket": "test"
+      },
+      "test1": {
+        "//": {
+          "metadata": {
+            "path": "my-stack/test1",
+            "uniqueId": "test1"
+          }
+        },
+        "bucket": "test1"
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/home/tim/Code/nitric/Terraform API Example/terraform.my-stack.tfstate"
+      }
+    },
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "5.58.0"
+      }
+    }
+  },
+  "variable": {
+    "region": {
+      "description": "The AWS region to deploy the stack to",
+      "type": "string"
+    }
+  }
+}
